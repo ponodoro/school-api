@@ -1,5 +1,7 @@
 from flask import Flask
 
+from database import database
+
 def app_factory() -> Flask:
     """
     Application factory
@@ -9,6 +11,10 @@ def app_factory() -> Flask:
 
     # Creating application object
     app = Flask(__name__)
+
+    # Initializing a created
+    # database instance
+    database.init_app(app) 
 
     # Returns a ready-work application
     return app
