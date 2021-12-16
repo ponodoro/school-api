@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_dotenv import DotEnv
 
 from database import database
 
@@ -10,7 +11,11 @@ def app_factory() -> Flask:
     """
 
     # Creating application object
-    app = Flask(__name__)
+    app: Flask = Flask(__name__)
+
+    # Initializing the .env 
+    # configuration
+    env: DotEnv = DotEnv(app)
 
     # Initializing a created
     # database instance
